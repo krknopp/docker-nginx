@@ -14,5 +14,9 @@ RUN add-apt-repository ppa:nginx/stable \
 	&& apt-get clean \
 	&& rm -r /var/lib/apt/lists/*
 
+RUN rm -f /etc/nginx/sites-enabled/*
+
+COPY default.conf /etc/nginx/conf.d/
+
 CMD ["nginx -g 'daemon off;'"]
 
